@@ -2,13 +2,13 @@
 using UnityEngine;
 using Verse;
 
-namespace ToDoList;
+namespace SimpleChecklist;
 
 public class ManageItemsWindow: Window
 {
     public override void DoWindowContents(Rect rect)
     {
-        var todoComponent = Current.Game.GetComponent<ToDoListWorldComponent>();
+        var gameComponent = Current.Game.GetComponent<SimpleChecklistGameComponent>();
         
         var y = 0;
         
@@ -28,19 +28,19 @@ public class ManageItemsWindow: Window
             Find.WindowStack.Add(new AddItemWindow());
         }
         
-        var items = todoComponent.Items.ToArray();
+        var items = gameComponent.Items.ToArray();
 
         if (items.Length == 0) return;
         for (var i = 0; i < items.Length; i++)
         {
-            var toDoItem = items[i];
+            var checklistItem = items[i];
             
             if (i != 0)
             {
                 var moveUpRect = new Rect(0, y, 24f, 24f);
                 if (Widgets.ButtonImage(moveUpRect, TexButton.ReorderUp, Color.white))
                 {
-                    todoComponent.MoveUp(toDoItem.Id);
+                    gameComponent.MoveUp(checklistItem.Id);
                 }
                 
                 if (Mouse.IsOver(moveUpRect))
@@ -54,7 +54,7 @@ public class ManageItemsWindow: Window
                 var moveDownRect = new Rect(30, y, 24f, 24f);
                 if (Widgets.ButtonImage(moveDownRect, TexButton.ReorderDown, Color.white))
                 {
-                    todoComponent.MoveDown(toDoItem.Id);
+                    gameComponent.MoveDown(checklistItem.Id);
                 }
                 
                 if (Mouse.IsOver(moveDownRect))
@@ -64,10 +64,10 @@ public class ManageItemsWindow: Window
             }
 
             var removeButtonRect = new Rect(60f, y, 24, 24);
-            Widgets.DrawTextureFitted(removeButtonRect, Widgets.CheckboxOffTex, 1f);
+            Widgets.DrawTextureFitted(removeButtonRect, TexButton.Minus, 1f);
             if (Widgets.ButtonInvisible(removeButtonRect))
             {
-                todoComponent.RemoveItem(toDoItem.Id);
+                gameComponent.RemoveItem(checklistItem.Id);
             }
 
             if (Mouse.IsOver(removeButtonRect))
@@ -76,7 +76,7 @@ public class ManageItemsWindow: Window
             }
 
             var output = "";
-            output = toDoItem.Completed ? toDoItem.Label.Aggregate(output, (current, c) => current + c + '\u0336') : toDoItem.Label;
+            output = checklistItem.Completed ? checklistItem.Label.Aggregate(output, (current, c) => current + c + '\u0336') : checklistItem.Label;
 
             Widgets.Label(new Rect(90f, y, rect.width, 24), output);
             y += 30;

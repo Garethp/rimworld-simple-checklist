@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using Verse;
 
-namespace ToDoList;
+namespace SimpleChecklist;
 
-public class ToDoListWorldComponent : GameComponent
+public class SimpleChecklistGameComponent : GameComponent
 {
-    public ToDoListWorldComponent(Game game)
+    public SimpleChecklistGameComponent(Game game)
     {
     }
 
-    public List<ToDoItem> Items;
+    public List<ChecklistItem> Items = new ();
 
     public void MarkItemCompleted(string id)
     {
@@ -54,7 +54,7 @@ public class ToDoListWorldComponent : GameComponent
     public override void ExposeData()
     {
         Scribe_Collections.Look(ref Items, "Items", LookMode.Deep);
-        Items ??= new List<ToDoItem>();
+        Items ??= new List<ChecklistItem>();
         
         base.ExposeData();
     }

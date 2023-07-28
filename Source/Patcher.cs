@@ -1,12 +1,12 @@
 ﻿using HarmonyLib;
 using RimWorld;
 
-namespace ToDoList;
+namespace SimpleChecklist;
 
 [HarmonyPatch(typeof(MapInterface), "MapInterfaceOnGUI_BeforeMainTabs")]
 public class Patcher
 {
-    private static ToDoListReadout readout = new();
+    private static ChecklistReadout readout = new();
     
     public static void Postfix()
     {

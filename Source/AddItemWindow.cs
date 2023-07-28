@@ -2,7 +2,7 @@
 using UnityEngine;
 using Verse;
 
-namespace ToDoList;
+namespace SimpleChecklist;
 
 public class AddItemWindow: Window
 {
@@ -29,13 +29,13 @@ public class AddItemWindow: Window
             Event.current.Use();
         }
 
-        GUI.SetNextControlName("ToDoItemAddInput");
+        GUI.SetNextControlName("ChecklistItemAddInput");
         itemText = Widgets.TextField(new Rect(0.0f, 0f, (float) (rect.width / 2.0 + 70.0), 35f), itemText);
         var rect1 = new Rect((float) (rect.width / 2.0 + 90.0), 0f, (float) (rect.width / 2.0 - 90.0), 35f);
 
         if (firstFrame)
         {
-            GUI.FocusControl("ToDoItemAddInput");
+            GUI.FocusControl("ChecklistItemAddInput");
             firstFrame = false;
         }
         
@@ -48,7 +48,7 @@ public class AddItemWindow: Window
         {
             if (itemText.Length > 0)
             {
-                Current.Game.GetComponent<ToDoListWorldComponent>().AddItem(itemText);
+                Current.Game.GetComponent<SimpleChecklistGameComponent>().AddItem(itemText);
             }
 
             Find.WindowStack.TryRemove(this);

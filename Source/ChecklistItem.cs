@@ -1,18 +1,18 @@
 ﻿using RimWorld;
 using Verse;
 
-namespace ToDoList;
+namespace SimpleChecklist;
 
-public class ToDoItem: IExposable
+public class ChecklistItem: IExposable
 {
-    public ToDoItem()
+    public ChecklistItem()
     {
         Id = "";
         Label = "";
         Completed = false;
     }
     
-    public ToDoItem(string id, string label, bool completed)
+    public ChecklistItem(string id, string label, bool completed)
     {
         Id = id;
         Label = label;

@@ -4,9 +4,9 @@ using UnityEngine;
 using Verse;
 using Verse.Sound;
 
-namespace ToDoList;
+namespace SimpleChecklist;
 
-public class ToDoListReadout
+public class ChecklistReadout
 {
     private Vector2 scrollPosition;
     private float lastDrawnHeight;
@@ -33,8 +33,8 @@ public class ToDoListReadout
     
     public void ReadoutOnGUI()
     {
-        var todoComponent = Current.Game.GetComponent<ToDoListWorldComponent>();
-        if (todoComponent is null) return;
+        var gameComponent = Current.Game.GetComponent<SimpleChecklistGameComponent>();
+        if (gameComponent is null) return;
         
         if (
             // Event.current.type == EventType.Layout || 
@@ -63,7 +63,7 @@ public class ToDoListReadout
     
     private void DoReadoutSimple(Rect rect, float outRectHeight)
     {
-        var component = Current.Game.GetComponent<ToDoListWorldComponent>();
+        var component = Current.Game.GetComponent<SimpleChecklistGameComponent>();
         
         Widgets.BeginGroup(rect);
         Text.Anchor = TextAnchor.MiddleLeft;
@@ -94,7 +94,7 @@ public class ToDoListReadout
         Widgets.EndGroup();
     }
     
-    public void DrawResourceSimple(Rect rect, ToDoItem item)
+    public void DrawResourceSimple(Rect rect, ChecklistItem item)
     {
         var output = "";
         output = item.Completed ? item.Label.Aggregate(output, (current, c) => current + c + '\u0336') : item.Label;
@@ -102,7 +102,7 @@ public class ToDoListReadout
         rect.y += 2f;
         if (Checkbox(new Rect(0f, rect.y, rect.width, rect.height), output, ref item.Completed))
         {
-            Current.Game.GetComponent<ToDoListWorldComponent>().MarkItemCompleted(item.Id);
+            Current.Game.GetComponent<SimpleChecklistGameComponent>().MarkItemCompleted(item.Id);
         }
     }
 }

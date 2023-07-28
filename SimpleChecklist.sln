@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList", "Source\ToDoList.csproj", "{680ADA34-79BA-47A5-A4EB-1081D84984BA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleChecklist", "Source\SimpleChecklist.csproj", "{680ADA34-79BA-47A5-A4EB-1081D84984BA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

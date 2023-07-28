@@ -7,8 +7,8 @@
         <ProjectGuid>{680ADA34-79BA-47A5-A4EB-1081D84984BA}</ProjectGuid>
         <OutputType>Library</OutputType>
         <AppDesignerFolder>Properties</AppDesignerFolder>
-        <RootNamespace>ToDoList</RootNamespace>
-        <AssemblyName>ToDoList</AssemblyName>
+        <RootNamespace>SimpleChecklist</RootNamespace>
+        <AssemblyName>SimpleChecklist</AssemblyName>
         <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
         <FileAlignment>512</FileAlignment>
         <LangVersion>11</LangVersion>
@@ -62,10 +62,10 @@
       <Compile Include="AddItemWindow.cs" />
       <Compile Include="ManageItemsWindow.cs" />
       <Compile Include="Patcher.cs" />
-      <Compile Include="ToDoItem.cs" />
-      <Compile Include="ToDoList.cs" />
-      <Compile Include="ToDoListReadout.cs" />
-      <Compile Include="ToDoListWorldComponent.cs" />
+      <Compile Include="ChecklistItem.cs" />
+      <Compile Include="SimpleChecklist.cs" />
+      <Compile Include="ChecklistReadout.cs" />
+      <Compile Include="SimpleChecklistGameComponent.cs" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
