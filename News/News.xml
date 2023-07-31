@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <HugsLib.UpdateFeatureDef Abstract="true" Name="UpdateFeatureBase">
+        <modNameReadable>Simple Checklist</modNameReadable>
+        <modIdentifier>Garethp.rimworld.SimpleChecklist</modIdentifier>
+    </HugsLib.UpdateFeatureDef>
+    
+    <HugsLib.UpdateFeatureDef ParentName="UpdateFeatureBase">
+        <defName>Simple Checklist_1_1_0</defName>
+        <assemblyVersion>1.1.0</assemblyVersion>
+        <content>
+- Move the position of the Checklist away from the notifications area
+- Add a button to the Checklist to toggle the visibility of the Checklist
+        </content>
+    </HugsLib.UpdateFeatureDef>
+</Defs>

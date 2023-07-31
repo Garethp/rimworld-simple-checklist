@@ -11,6 +11,17 @@ public class ChecklistReadout
     private Vector2 scrollPosition;
     private float lastDrawnHeight;
 
+    float x = (float) UI.screenWidth - 450f;
+    static float initialY = (float) UI.screenHeight - 70f;
+
+    private static float y = initialY;
+    private static bool showManageItems = false;
+    
+    // float x = (float) UI.screenWidth - 130;
+    // float y = (float) UI.screenHeight - 7; 
+
+    public static bool ShowReadout = true;
+
     public static bool Checkbox(Rect rect, string s, ref bool checkOn)
     {
         bool flag = checkOn;
@@ -33,6 +44,8 @@ public class ChecklistReadout
     
     public void ReadoutOnGUI()
     {
+        if (!ShowReadout) return;
+        
         var gameComponent = Current.Game.GetComponent<SimpleChecklistGameComponent>();
         if (gameComponent is null) return;
         
@@ -42,7 +55,7 @@ public class ChecklistReadout
             return;
         GenUI.DrawTextWinterShadow(new Rect(256f, 512f, -256f, -512f));
         Text.Font = GameFont.Small;
-        Rect rect1 = new Rect(130f, 7f, 300f, UI.screenHeight - 7 - 200f);
+        Rect rect1 = new Rect(x, y, 300f, UI.screenHeight - 7 - 200f);
         Rect rect2 = new Rect(0.0f, 0.0f, rect1.width, lastDrawnHeight);
         int num = rect2.height > (double) rect1.height ? 1 : 0;
         if (num != 0)
@@ -82,7 +95,7 @@ public class ChecklistReadout
             Find.WindowStack.Add(new AddItemWindow());
         }
         
-        if (Widgets.ButtonText(new Rect(75, y, 110, 24), "Manage Items"))
+        if (showManageItems && Widgets.ButtonText(new Rect(75, y, 110, 24), "Manage Items"))
         {
             Find.WindowStack.Add(new ManageItemsWindow());
         }
@@ -100,9 +113,12 @@ public class ChecklistReadout
         output = item.Completed ? item.Label.Aggregate(output, (current, c) => current + c + '\u0336') : item.Label;
 
         rect.y += 2f;
-        if (Checkbox(new Rect(0f, rect.y, rect.width, rect.height), output, ref item.Completed))
-        {
-            Current.Game.GetComponent<SimpleChecklistGameComponent>().MarkItemCompleted(item.Id);
-        }
+        Checkbox(new Rect(0f, rect.y, rect.width, rect.height), output, ref item.Completed);
+    }
+
+    public static void UpdateItemCount(int itemCount)
+    {
+        y = initialY - itemCount * 24;
+        showManageItems = itemCount > 0;
     }
 }

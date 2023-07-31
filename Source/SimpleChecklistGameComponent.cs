@@ -11,16 +11,13 @@ public class SimpleChecklistGameComponent : GameComponent
     }
 
     public List<ChecklistItem> Items = new ();
-
-    public void MarkItemCompleted(string id)
-    {
-        Items.Find(item => item.Id == id).Completed = true;
-    }
-
+    
     public void AddItem(string itemText)
     {
         var id = Guid.NewGuid();
         Items.Add(new (id.ToString(), itemText, false));
+        
+        ChecklistReadout.UpdateItemCount(Items.Count);
     }
 
     public void RemoveItem(string id)
@@ -29,6 +26,7 @@ public class SimpleChecklistGameComponent : GameComponent
         if (itemToRemove is null) return;
 
         Items.Remove(itemToRemove);
+        ChecklistReadout.UpdateItemCount(Items.Count);
     }
 
     public void MoveUp(string id)
@@ -55,6 +53,8 @@ public class SimpleChecklistGameComponent : GameComponent
     {
         Scribe_Collections.Look(ref Items, "Items", LookMode.Deep);
         Items ??= new List<ChecklistItem>();
+        
+        ChecklistReadout.UpdateItemCount(Items.Count);
         
         base.ExposeData();
     }

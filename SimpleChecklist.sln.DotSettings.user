@@ -5,7 +5,7 @@
 	<s:String x:Key="/Default/Environment/AssemblyExplorer/XmlDocument/@EntryValue">&lt;AssemblyExplorer&gt;&#xD;
   &lt;Assembly Path="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll" /&gt;&#xD;
   &lt;Assembly Path="D:\SteamLibrary\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\Assembly-CSharp.dll" /&gt;&#xD;
-  &lt;Assembly Path="D:\SteamLibrary\steamapps\common\RimWorld\Mods\to-do-list\Source\DubsMintMinimap.dll" /&gt;&#xD;
+  &lt;Assembly Path="D:\SteamLibrary\steamapps\common\RimWorld\Mods\simple-checklist\Source\DubsMintMinimap.dll" /&gt;&#xD;
 &lt;/AssemblyExplorer&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=d2b06c33_002D6617_002D4d3c_002Dbd85_002Dc07d9895f9e9/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="TestCollectionNoDiff" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;Project Location="D:\SteamLibrary\steamapps\common\RimWorld\Mods\modlist-configurator\ModlistConfiguratorTest" Presentation="&amp;lt;ModlistConfiguratorTest&amp;gt;" /&gt;&#xD;
