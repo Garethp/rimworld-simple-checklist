@@ -75,10 +75,7 @@ public class ManageItemsWindow: Window
                 TooltipHandler.TipRegion(rect, "Delete".Translate());
             }
 
-            var output = "";
-            output = checklistItem.Completed ? checklistItem.Label.Aggregate(output, (current, c) => current + c + '\u0336') : checklistItem.Label;
-
-            Widgets.Label(new Rect(90f, y, rect.width, 24), output);
+            Widgets.Label(new Rect(90f, y, rect.width, 24), checklistItem.GetLabel());
             y += 30;
         }
     }

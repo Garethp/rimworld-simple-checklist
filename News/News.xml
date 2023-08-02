@@ -21,4 +21,12 @@
             - Hide the checklist in screenshot mode
         </content>
     </HugsLib.UpdateFeatureDef>
+    
+    <HugsLib.UpdateFeatureDef ParentName="UpdateFeatureBase">
+        <defName>Simple Checklist_1_2_0</defName>
+        <assemblyVersion>1.2.0</assemblyVersion>
+        <content>
+            - Allow dragging the checklist around the screen
+        </content>
+    </HugsLib.UpdateFeatureDef>
 </Defs>

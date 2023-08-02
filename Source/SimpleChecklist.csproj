@@ -61,11 +61,10 @@
     <ItemGroup>
       <Compile Include="AddItemWindow.cs" />
       <Compile Include="ManageItemsWindow.cs" />
-      <Compile Include="Patcher.cs" />
       <Compile Include="ChecklistItem.cs" />
       <Compile Include="PlaySettingsPatch.cs" />
       <Compile Include="SimpleChecklist.cs" />
-      <Compile Include="ChecklistReadout.cs" />
+      <Compile Include="ChecklistWindow.cs" />
       <Compile Include="SimpleChecklistGameComponent.cs" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

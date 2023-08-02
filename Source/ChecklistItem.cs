@@ -1,4 +1,4 @@
-﻿using RimWorld;
+﻿using System.Linq;
 using Verse;
 
 namespace SimpleChecklist;
@@ -24,6 +24,14 @@ public class ChecklistItem: IExposable
         Scribe_Values.Look(ref Id, "Id");
         Scribe_Values.Look(ref Label, "Label");
         Scribe_Values.Look(ref Completed, "Completed");
+    }
+
+    public string GetLabel()
+    {
+        var output = "";
+        output = Completed ? Label.Aggregate(output, (current, c) => current + c + '\u0336') : Label;
+        
+        return output;
     }
 
     public string Id;

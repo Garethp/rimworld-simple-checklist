@@ -11,13 +11,15 @@ public class SimpleChecklistGameComponent : GameComponent
     }
 
     public List<ChecklistItem> Items = new ();
+    public float WindowX = 0;
+    public float WindowY = 0;
     
     public void AddItem(string itemText)
     {
         var id = Guid.NewGuid();
         Items.Add(new (id.ToString(), itemText, false));
         
-        ChecklistReadout.UpdateItemCount(Items.Count);
+        ChecklistWindow.UpdateItemCount(Items.Count);
     }
 
     public void RemoveItem(string id)
@@ -26,7 +28,7 @@ public class SimpleChecklistGameComponent : GameComponent
         if (itemToRemove is null) return;
 
         Items.Remove(itemToRemove);
-        ChecklistReadout.UpdateItemCount(Items.Count);
+        ChecklistWindow.UpdateItemCount(Items.Count);
     }
 
     public void MoveUp(string id)
@@ -52,10 +54,21 @@ public class SimpleChecklistGameComponent : GameComponent
     public override void ExposeData()
     {
         Scribe_Collections.Look(ref Items, "Items", LookMode.Deep);
+        Scribe_Values.Look(ref WindowX, "WindowX");
+        Scribe_Values.Look(ref WindowY, "WindowY");
+        
         Items ??= new List<ChecklistItem>();
         
-        ChecklistReadout.UpdateItemCount(Items.Count);
+        ChecklistWindow.UpdateItemCount(Items.Count);
         
         base.ExposeData();
+    }
+
+    public override void FinalizeInit()
+    {
+        ChecklistWindow.UpdateItemCount(Items.Count);
+        Find.WindowStack.Add(new ChecklistWindow());
+
+        base.FinalizeInit();
     }
 }
