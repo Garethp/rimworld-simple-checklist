@@ -44,7 +44,7 @@ public class ChecklistReadout
     
     public void ReadoutOnGUI()
     {
-        if (!ShowReadout) return;
+        if (Find.UIRoot.screenshotMode.Active || !ShowReadout) return;
         
         var gameComponent = Current.Game.GetComponent<SimpleChecklistGameComponent>();
         if (gameComponent is null) return;
