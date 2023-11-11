@@ -29,4 +29,12 @@
             - Allow dragging the checklist around the screen
         </content>
     </HugsLib.UpdateFeatureDef>
+    
+    <HugsLib.UpdateFeatureDef ParentName="UpdateFeatureBase">
+        <defName>Simple Checklist_1_3_0</defName>
+        <assemblyVersion>1.3.0</assemblyVersion>
+        <content>
+            - Added Mod Settings to reset position and show/hide the checklist background
+        </content>
+    </HugsLib.UpdateFeatureDef>
 </Defs>

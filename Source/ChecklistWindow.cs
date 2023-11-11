@@ -19,7 +19,7 @@ public class ChecklistWindow: Window
         preventCameraMotion = false;
         onlyOneOfTypeAllowed = true;
         layer = WindowLayer.GameUI;
-        doWindowBackground = false;
+        doWindowBackground = Current.Game.GetComponent<SimpleChecklistGameComponent>().ShowBackground;
         drawInScreenshotMode = false;
         focusWhenOpened = false;
     }
