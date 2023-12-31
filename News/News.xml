@@ -37,4 +37,12 @@
             - Added Mod Settings to reset position and show/hide the checklist background
         </content>
     </HugsLib.UpdateFeatureDef>
+    
+    <HugsLib.UpdateFeatureDef ParentName="UpdateFeatureBase">
+        <defName>Simple Checklist_1_4_0</defName>
+        <assemblyVersion>1.4.0</assemblyVersion>
+        <content>
+            - Added a small option to auto number your list of items
+        </content>
+    </HugsLib.UpdateFeatureDef>
 </Defs>

@@ -14,6 +14,7 @@ public class SimpleChecklistGameComponent : GameComponent
     public float WindowX = 0;
     public float WindowY = 0;
     public bool ShowBackground = false;
+    public bool NumberItems = false;
     
     public void AddItem(string itemText)
     {
@@ -58,6 +59,7 @@ public class SimpleChecklistGameComponent : GameComponent
         Scribe_Values.Look(ref WindowX, "WindowX");
         Scribe_Values.Look(ref WindowY, "WindowY");
         Scribe_Values.Look(ref ShowBackground, "ShowBackground");
+        Scribe_Values.Look(ref NumberItems, "NumberItems");
         
         Items ??= new List<ChecklistItem>();
         

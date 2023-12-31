@@ -26,11 +26,13 @@ public class ChecklistItem: IExposable
         Scribe_Values.Look(ref Completed, "Completed");
     }
 
-    public string GetLabel()
+    public string GetLabel(int number = -1)
     {
         var output = "";
         output = Completed ? Label.Aggregate(output, (current, c) => current + c + '\u0336') : Label;
-        
+
+        if (number >= 1) output = $"{number}. {output}";
+            
         return output;
     }
 

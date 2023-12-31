@@ -88,11 +88,13 @@ public class ChecklistWindow: Window
         Widgets.BeginGroup(rect);
         Text.Anchor = TextAnchor.MiddleLeft;
         var y = 0.0f;
-        
+
+        var number = 0;
         foreach (var item in component.Items)
         {
+            number++;
             var rect1 = new Rect(0.0f, y, 999f, 24f);
-            DrawResourceSimple(rect1, item);
+            DrawResourceSimple(rect1, item, component.NumberItems ? number : -1);
             y += 24f;
         }
 
@@ -117,10 +119,10 @@ public class ChecklistWindow: Window
         showManageItems = itemCount > 0;
     }
     
-    public void DrawResourceSimple(Rect rect, ChecklistItem item)
+    public void DrawResourceSimple(Rect rect, ChecklistItem item, int number)
     {
         rect.y += 2f;
-        Checkbox(new Rect(0f, rect.y, rect.width, rect.height), item.GetLabel(), ref item.Completed);
+        Checkbox(new Rect(0f, rect.y, rect.width, rect.height), item.GetLabel(number), ref item.Completed);
     }
     
     public static bool Checkbox(Rect rect, string s, ref bool checkOn)

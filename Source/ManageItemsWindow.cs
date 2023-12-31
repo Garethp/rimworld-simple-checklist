@@ -16,6 +16,9 @@ public class ManageItemsWindow: Window
 
         y += 48;
 
+        var numberItemsRect = new Rect(0, rect.height - 35f, 100, 35f);
+        ChecklistWindow.Checkbox(numberItemsRect, "Number Items", ref gameComponent.NumberItems);
+        
         var okRect = new Rect(rect.width - 100, rect.height - 35f, 100, 35f);
         if (Widgets.ButtonText(okRect, "Ok"))
         {
@@ -75,7 +78,7 @@ public class ManageItemsWindow: Window
                 TooltipHandler.TipRegion(rect, "Delete".Translate());
             }
 
-            Widgets.Label(new Rect(90f, y, rect.width, 24), checklistItem.GetLabel());
+            Widgets.Label(new Rect(90f, y, rect.width, 24), checklistItem.GetLabel(gameComponent.NumberItems ? i + 1 : -1));
             y += 30;
         }
     }
