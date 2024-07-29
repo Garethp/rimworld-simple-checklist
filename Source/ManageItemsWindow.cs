@@ -77,8 +77,20 @@ public class ManageItemsWindow: Window
             {
                 TooltipHandler.TipRegion(rect, "Delete".Translate());
             }
+            
+            var editButtonRect = new Rect(90f, y, 24, 24);
+            Widgets.DrawTextureFitted(editButtonRect, TexButton.Rename, 1f);
+            if (Widgets.ButtonInvisible(editButtonRect))
+            {
+                Find.WindowStack.Add(new EditItemWindow(i, checklistItem.Label));
+            }
 
-            Widgets.Label(new Rect(90f, y, rect.width, 24), checklistItem.GetLabel(gameComponent.NumberItems ? i + 1 : -1));
+            if (Mouse.IsOver(editButtonRect))
+            {
+                TooltipHandler.TipRegion(rect, "Rename".Translate());
+            }
+
+            Widgets.Label(new Rect(120f, y, rect.width, 24), checklistItem.GetLabel(gameComponent.NumberItems ? i + 1 : -1));
             y += 30;
         }
     }

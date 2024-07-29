@@ -24,6 +24,11 @@ public class SimpleChecklistGameComponent : GameComponent
         ChecklistWindow.UpdateItemCount(Items.Count);
     }
 
+    public void EditItem(int index, string itemText)
+    {
+        Items[index].Label = itemText;
+    }
+
     public void RemoveItem(string id)
     {
         var itemToRemove = Items.FirstOrDefault(item => item.Id == id);
